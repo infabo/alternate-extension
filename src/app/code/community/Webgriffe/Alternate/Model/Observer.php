@@ -49,7 +49,7 @@ class Webgriffe_Alternate_Model_Observer
             } elseif ($category) {
                 $url = $store->getBaseUrl() . $this->rewrittenCategoryUrl($category->getId(), $store);
             } else {
-                $url = $store->getUrl('', array('_current' => true, '_use_rewrite' => true));
+                $url = $store->getUrl('*/*/*', array('_current' => true, '_use_rewrite' => true));
             }
 
             $hreflangCode = $this->getHreflangCodeFromLocaleCode($store->getId());
