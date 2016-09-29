@@ -46,6 +46,13 @@ class Webgriffe_Alternate_Model_Observer
                     $store
                 );
                 $url = $store->getBaseUrl() . $rewrittenProductUrl;
+
+                if ($store->getId() === Mage::app()->getStore()->getId()
+                    && strpos(Mage::helper('core/url')->getCurrentUrl(), $product->getUrlPath()) === false
+                ) {
+                    return array();
+                }
+
             } elseif ($category) {
                 $url = $store->getBaseUrl() . $this->rewrittenCategoryUrl($category->getId(), $store);
             } else {
